@@ -1,0 +1,76 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2 style = "text-align: center;">Selective Schools Predictor</h2>
+		
+      {% for message in form.School_English.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.School_Maths.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.ExaminationScores_English.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.ExaminationScores_Maths.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.ExaminationScores_GA.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.ExaminationScores_Writing.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+      <form action="" method="post" name="mainform">
+         <fieldset>
+            <legend>Selective Schools Predictor</legend>
+            {{ form.hidden_tag() }}
+            
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.SchoolAssessmentTitle.label }}<br>
+               <br>
+               
+               {{ form.School_English.label }}<br>
+               {{ form.School_English }}
+               <br>
+               
+               {{ form.School_Maths.label }}<br>
+               {{ form.School_Maths }}
+               <br>
+
+               {{ form.ExaminationScoresTitle.label }}<br>
+               <br>
+
+               {{ form.ExaminationScores_English.label }}<br>
+               {{ form.ExaminationScores_English }}
+               <br>
+
+               {{ form.ExaminationScores_Maths.label }}<br>
+               {{ form.ExaminationScores_Maths }}
+               <br>
+
+               {{ form.ExaminationScores_GA.label }}<br>
+               {{ form.ExaminationScores_GA }}
+               <br>
+
+               {{ form.ExaminationScores_Writing.label }}<br>
+               {{ form.ExaminationScores_Writing }}
+               <br>
+
+               {{ form.submit }}
+            </div>
+            
+         </fieldset>
+      </form>
+
+{% endblock %}
+
+
+    
