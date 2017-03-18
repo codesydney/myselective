@@ -1,13 +1,8 @@
 <html>
   <head>
-    {% if title %}
-    <title>{{ title }} - myselective</title>
-    {% else %}
     <title>Welcome to My Selective</title>
-    {% endif %}
   </head>
   <body>
-    <div>My Selective: <a href="/index">Home</a></div>
     <hr>
     {% block content %}{% endblock %}
   </body>
