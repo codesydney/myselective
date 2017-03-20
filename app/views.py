@@ -40,7 +40,7 @@ def index():
                                 ExaminationScores_Maths=ExaminationScores_Maths,
                                 ExaminationScores_GA=ExaminationScores_GA,
                                 ExaminationScores_Writing=ExaminationScores_Writing,
-                                Total_Score=Total_Score)
+                                Total_Score=int(Total_Score))
     else:    
         return render_template('mainform.html',
                                 form=form)

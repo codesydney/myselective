@@ -5,27 +5,27 @@
 <h2 style = "text-align: center;">Selective Schools Predictor</h2>
 	
       {% for message in form.School_English.errors %}
-         <div>{{ message }}</div>
+         <div style="color:red">{{ message }}</div>
       {% endfor %}
       
       {% for message in form.School_Maths.errors %}
-         <div>{{ message }}</div>
+         <div style="color:red">{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_English.errors %}
-         <div>{{ message }}</div>
+         <div style="color:red">{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_Maths.errors %}
-         <div>{{ message }}</div>
+         <div style="color:red">{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_GA.errors %}
-         <div>{{ message }}</div>
+         <div style="color:red">{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_Writing.errors %}
-         <div>{{ message }}</div>
+         <div style="color:red">{{ message }}</div>
       {% endfor %}
 
       <form action = "" method="POST" name="mainform">
