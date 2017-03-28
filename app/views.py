@@ -1,14 +1,14 @@
 from flask import render_template, flash, redirect, request
-from app import app
+from app import app, db, models
 from .forms import MainForm
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    form = MainForm()
+    form = MainForm()    
     
-    #if request.method == 'POST':
     if form.validate_on_submit():
+
         School_English = form.School_English.data
         form.School_English.data = ''
        
@@ -32,6 +32,8 @@ def index():
         Total_GA = ExaminationScores_GA
         Total_Score = Total_English + Total_Maths + Total_GA
         
+        schools = models.School.query.filter(models.School.entryscore > Total_Score).all()
+                 
         return render_template('result.html',
                                 form=form,
                                 School_English=School_English,
@@ -39,8 +41,9 @@ def index():
                                 ExaminationScores_English=ExaminationScores_English,
                                 ExaminationScores_Maths=ExaminationScores_Maths,
                                 ExaminationScores_GA=ExaminationScores_GA,
-                                ExaminationScores_Writing=ExaminationScores_Writing,
-                                Total_Score=int(Total_Score))
+                                ExaminationScores_Writing=ExaminationScores_Writing,                                
+                                Total_Score=int(Total_Score),
+                                schools=schools)
     else:    
         return render_template('mainform.html',
                                 form=form)

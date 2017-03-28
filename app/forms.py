@@ -15,4 +15,4 @@ class MainForm(Form):
     ExaminationScores_GA = IntegerField('GA', [validators.Required("Please enter your GA Exam Score.")])
     ExaminationScores_Writing = IntegerField('Writing', [validators.Required("Please enter your Writing Exam Score.")])
     
-    submit = SubmitField('Run')
+    submit = SubmitField('Run')    
