@@ -32,7 +32,7 @@ def index():
         Total_GA = ExaminationScores_GA
         Total_Score = Total_English + Total_Maths + Total_GA
         
-        schools = models.School.query.filter(models.School.entryscore > Total_Score).all()
+        schools = models.School.query.filter(models.School.entryscore <= Total_Score).all()
                  
         return render_template('result.html',
                                 form=form,
