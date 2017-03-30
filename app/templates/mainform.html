@@ -35,9 +35,8 @@
             {{ form.hidden_tag() }}
             
             <div style = font-size:20px; font-weight:bold; margin-left:150px;>
-               {{ form.SchoolAssessmentTitle.label }}<br>
-               <br>
-               
+               <h4>School Assessment</h4>			  
+			   
                {{ form.School_English.label }}<br>
                {{ form.School_English }}
                <br>
@@ -46,9 +45,8 @@
                {{ form.School_Maths }}
                <br>
                <br> 
-
-               {{ form.ExaminationScoresTitle.label }}<br>
-               <br>
+ 			   
+			   <h4>Examination Scores</h4>			  
 
                {{ form.ExaminationScores_English.label }}<br>
                {{ form.ExaminationScores_English }}
@@ -66,11 +64,46 @@
                {{ form.ExaminationScores_Writing }}
                <br>
                <br> 
+			   
+			  <body>
+   			    <h4>Home Address</h4>			  
+				<form>
+				  <input id="geocomplete" type="text" placeholder="Type in your home address" size="90" />
+				</form>
+				
+				<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDF717x9JS9ixAmsn1vJnElLfWn20BgKcM&sensor=false&amp;libraries=places"></script>
+				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-               {{ form.submit }}
+				<script type="text/javascript" src="{{ url_for('static', filename='jquery.geocomplete.js') }}"></script>
+				<script type="text/javascript" src="{{ url_for('static', filename='logger.js') }}"></script>
+			   
+				<script>
+				  $(function(){
+					
+					$("#geocomplete").geocomplete({country: 'AUS'})
+					  .bind("geocode:result", function(event, result){
+						$.log("Result: " + result.formatted_address);
+					  })
+					  .bind("geocode:error", function(event, status){
+						$.log("ERROR: " + status);
+					  })
+					  .bind("geocode:multiple", function(event, results){
+						$.log("Multiple: " + results.length + " results found");
+					  });                
+				  });
+				</script>
+					
+			  </body>           
+			  
+               <br>
+               <br> 
+   	            {{ form.submit }}
             </div>
             
          </fieldset>
       </form>
+	  
+
+  
 
 {% endblock %}
