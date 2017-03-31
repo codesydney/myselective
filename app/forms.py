@@ -6,13 +6,13 @@ from wtforms.validators import DataRequired
 
 class MainForm(Form):
     SchoolAssessmentTitle = StringField("School Assessment")
-    School_English = IntegerField('English', [validators.Required("Please enter your English School Assessment.")])
-    School_Maths = IntegerField('Mathematics', [validators.Required("Please enter your Maths School Assessment.")])
-    
+    School_English = IntegerField('English', [validators.Required("Please enter your English school assessment.")])
+    School_Maths = IntegerField('Mathematics', [validators.Required("Please enter your Maths school assessment.")])
     ExaminationScoresTitle = StringField("Examination Scores")
-    ExaminationScores_English = IntegerField('English', [validators.Required("Please enter your English Exam Score.")])
-    ExaminationScores_Maths = IntegerField('Maths', [validators.Required("Please enter your Maths Exam Score.")])
-    ExaminationScores_GA = IntegerField('GA', [validators.Required("Please enter your GA Exam Score.")])
-    ExaminationScores_Writing = IntegerField('Writing', [validators.Required("Please enter your Writing Exam Score.")])
-    
-    submit = SubmitField('Run')    
+    ExaminationScores_English = IntegerField('English', [validators.Required("Please enter your English exam score.")])
+    ExaminationScores_Maths = IntegerField('Maths', [validators.Required("Please enter your Maths exam score.")])
+    ExaminationScores_GA = IntegerField('GA', [validators.Required("Please enter your GA exam score.")])
+    ExaminationScores_Writing = IntegerField('Writing', [validators.Required("Please enter your Writing exam score.")])
+    HomeAddressTitle = StringField("Home Address")	
+    HomeAddress = StringField('Home Address', [validators.Required("Please enter your Home address.")],render_kw={"placeholder": "Type in your home address","id":"geocomplete","size":"90"})
+    Submit = SubmitField('Submit')    

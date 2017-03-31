@@ -41,7 +41,7 @@ def index():
                                 ExaminationScores_English=ExaminationScores_English,
                                 ExaminationScores_Maths=ExaminationScores_Maths,
                                 ExaminationScores_GA=ExaminationScores_GA,
-                                ExaminationScores_Writing=ExaminationScores_Writing,                                
+                                ExaminationScores_Writing=ExaminationScores_Writing,                                								
                                 Total_Score=int(Total_Score),
                                 schools=schools)
     else:    

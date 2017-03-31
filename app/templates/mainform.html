@@ -27,10 +27,12 @@
       {% for message in form.ExaminationScores_Writing.errors %}
          <div style="color:red">{{ message }}</div>
       {% endfor %}
-
+	  
+	  {% for message in form.HomeAddress.errors %}
+         <div style="color:red">{{ message }}</div>
+      {% endfor %}
+	  	  
       <form action = "" method="POST" name="mainform">
-         <fieldset>
-            <legend>Selective Schools Predictor</legend>
             <br>
             {{ form.hidden_tag() }}
             
@@ -44,7 +46,7 @@
                {{ form.School_Maths.label }}<br>
                {{ form.School_Maths }}
                <br>
-               <br> 
+               <br>
  			   
 			   <h4>Examination Scores</h4>			  
 
@@ -64,11 +66,11 @@
                {{ form.ExaminationScores_Writing }}
                <br>
                <br> 
-			   
+			   			   			   
 			  <body>
-   			    <h4>Home Address</h4>			  
+   			    <h4>My Home Address</h4>			  
 				<form>
-				  <input id="geocomplete" type="text" placeholder="Type in your home address" size="90" />
+                 {{ form.HomeAddress }}	
 				</form>
 				
 				<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDF717x9JS9ixAmsn1vJnElLfWn20BgKcM&sensor=false&amp;libraries=places"></script>
@@ -91,16 +93,14 @@
 						$.log("Multiple: " + results.length + " results found");
 					  });                
 				  });
-				</script>
-					
-			  </body>           
+				</script>					
+			  </body>    
 			  
-               <br>
-               <br> 
-   	            {{ form.submit }}
-            </div>
-            
-         </fieldset>
+              <br> 
+			  <br> 
+   	         
+			  {{ form.Submit }}
+            </div>          
       </form>
 	  
 
