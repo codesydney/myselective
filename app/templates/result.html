@@ -2,8 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 style = "text-align: center;">Selective Schools Predictor</h2>
-	
+<h1 style="font-size:30px;font-weight:bold;margin-center:150px;text-align:center;">Selective Schools Predictor</h1>	
       <form action = "" method="POST" name="mainform">
          <fieldset>
             <br>
@@ -18,7 +17,10 @@
                GA Examination Score {{ ExaminationScores_GA }} <br>
                Writing Examination Score {{ ExaminationScores_Writing }} <br>                                   
                
-			   <h2 style = "text-align: left;">Home Address</h2>{{HomeAddress}}<br>
+			   <h2 style = "text-align: left;">Home Address</h2>
+			   {{HomeAddress}}<br>
+			   Lat {{HomeLat}}<br>
+			   Long {{HomeLng}}<br>
 			   
 			   <h2 style = "text-align: left;">Predicted Selective Schools List</h2>
                {% for school in schools %}

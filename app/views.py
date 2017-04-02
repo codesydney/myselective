@@ -33,6 +33,8 @@ def index():
 		Total_Score = Total_English + Total_Maths + Total_GA
         
 		HomeAddress = form.HomeAddress.data
+		HomeLat = form.HomeLat.data
+		HomeLng = form.HomeLng.data		
 		
 		schools = models.School.query.filter(models.School.entryscore <= Total_Score).order_by(models.School.entryscore.desc()).all()
 		return render_template('result.html',
@@ -45,6 +47,8 @@ def index():
 								ExaminationScores_Writing=ExaminationScores_Writing,                                								
 								Total_Score=int(Total_Score),
 								HomeAddress=HomeAddress,
+								HomeLat=HomeLat,
+								HomeLng=HomeLng,
 								schools=schools)
 	elif resultform.validate_on_submit() and resultform.Submit2.data:	
          return redirect(url_for('index'))

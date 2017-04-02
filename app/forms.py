@@ -14,9 +14,11 @@ class MainForm(Form):
 	ExaminationScores_Maths = IntegerField('Maths', [validators.Required("Please enter your Maths exam score.")])
 	ExaminationScores_GA = IntegerField('GA', [validators.Required("Please enter your GA exam score.")])
 	ExaminationScores_Writing = IntegerField('Writing', [validators.Required("Please enter your Writing exam score.")])
-	HomeAddressTitle = StringField("Home Address")	
-	HomeAddress = StringField('Home Address', [validators.Required("Please enter your Home address.")],render_kw={"placeholder": "Type in your home address","id":"geocomplete","size":"90"})
+	HomeAddressTitle = StringField("Home Address")		
+	HomeAddress = StringField('Home Address', [validators.Required("Please enter your Home address.")],render_kw={"placeholder": "Type in your home address","id":"geocomplete","size":"90"})	
+	HomeLat = StringField(render_kw={"id":"home_lat"})	
+	HomeLng = StringField(render_kw={"id":"home_lng"})		
 	Submit1 = SubmitField('Submit')    
-		
+
 class ResultForm(Form):
     Submit2 = SubmitField('Try again')    
