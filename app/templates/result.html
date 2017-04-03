@@ -24,7 +24,7 @@
 			   
 			   <h2 style = "text-align: left;">Predicted Selective Schools List</h2>
                {% for school in schools %}
-                  {{ school.schoolname }} {{ school.entryscore }} <br>
+                  {{ school.schoolname }} {{ school.entryscore }} {{ school.website }} {{ school.schooladdress }} {{ school.schoollat }} {{ school.schoollng }}<br>
                {% endfor %}               
                
 			   <br> 
