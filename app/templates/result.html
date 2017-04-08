@@ -8,7 +8,7 @@
             <br>
             {{ resultform.hidden_tag() }}
             
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+            <div style = "font-size:20px; font-weight:normal; margin-left:100px;">
                <h1 style = "text-align: left;">My Score is {{ Total_Score }} </h1>
                English School Assessment {{ School_English }} <br>
                Mathematics School Assessment {{ School_Maths }} <br>
@@ -23,12 +23,27 @@
 			   Long {{HomeLng}}<br>
 			   
 			   <h2 style = "text-align: left;">Predicted Selective Schools List</h2>
-               {% for school in schools %}
-                  {{ school.schoolname }} {{ school.entryscore }} {{ school.website }} {{ school.schooladdress }} {{ school.schoollat }} {{ school.schoollng }}<br>
-               {% endfor %}               
-               
+			   <table style="width:100%; text-align:left; font-weight:normal;" >
+			   <tr>
+   			      <th>School Name</th>
+				  <th>Entry Score</th>
+				  <th>Website</th>
+				  <th>Distance from home</th>
+			   </tr>	
+			   {% for school in school_list %}
+			   <tr>
+   			      <td>{% print school[0] %}</td>
+				  <td>{% print school[1] %}</td>
+				  <td>{% print school[2] %}</td>
+				  <td>{% print school[3] %} kms</td>
+			   </tr>	
+			   {% endfor %}               
+			   
 			   <br> 
-			   <br>    	         
+			   <br> 
+			   </table>			   
+				
+				
 			   {{ resultform.Submit2 }}
 			   
             </div>
