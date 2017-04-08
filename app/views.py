@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect, request, url_for
 from app import app, db, models
 from .forms import MainForm, ResultForm
 from math import sin, cos, sqrt, atan2
+from flask_bootstrap import Bootstrap
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])

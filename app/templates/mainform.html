@@ -2,54 +2,60 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 style="font-size:30px;font-weight:bold;margin-center:150px;text-align:center;">Selective Schools Predictor</h1>
-	
+<h1 style="font-size:45px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>
+	  
+      <div style="margin-left:150px; color:red">
       {% for message in form.School_English.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div>{{ message }}</div>
       {% endfor %}
       
       {% for message in form.School_Maths.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div>{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_English.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div>{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_Maths.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div>{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_GA.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div>{{ message }}</div>
       {% endfor %}
       
       {% for message in form.ExaminationScores_Writing.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div>{{ message }}</div>
       {% endfor %}
 	  
 	  {% for message in form.HomeAddress.errors %}
-         <div style="color:red">{{ message }}</div>
+         <div">{{ message }}</div>
       {% endfor %}
-	  	  
+      </div> 	  
+	  
       <form action = "" method="POST" name="mainform">
+           <fieldset>
             <br>
             {{ form.hidden_tag() }}
             
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+            <div style = "font-size:30px; font-weight:normal; margin-left:150px;">
                <h4>School Assessment</h4>			  
 			   
+			   <div style = "margin-left:260px;">
                {{ form.School_English.label }}<br>
                {{ form.School_English }}
                <br>
-               
+			   
                {{ form.School_Maths.label }}<br>
                {{ form.School_Maths }}
+               </div>			   
+			   <br>
                <br>
-               <br>
- 			   
+ 			   			   
 			   <h4>Examination Scores</h4>			  
 
+			   <div style = "margin-left:260px;">
                {{ form.ExaminationScores_English.label }}<br>
                {{ form.ExaminationScores_English }}
                <br>
@@ -64,16 +70,20 @@
 
                {{ form.ExaminationScores_Writing.label }}<br>
                {{ form.ExaminationScores_Writing }}
+			   </div>			   
                <br>
                <br> 
 			   			   			   
 			  <body>
    			    <h4>My Home Address</h4>			  
+				
+				<div style = "margin-left:260px;">
 				<form>
                  {{ form.HomeAddress }}					 				 
 				 {{ form.HomeLat }}					 				 
 				 {{ form.HomeLng }}					 				 
 				</form>
+				</div>
 				
 				<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDF717x9JS9ixAmsn1vJnElLfWn20BgKcM&sensor=false&amp;libraries=places"></script>
 				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -103,8 +113,9 @@
 			  
               <br> 
 			  <br> 
-   	         
+   	          
 			  {{ form.Submit1 }}
+			  
             </div>          
       </form>
 	  

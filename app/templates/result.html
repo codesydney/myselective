@@ -2,48 +2,67 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 style="font-size:30px;font-weight:bold;margin-center:150px;text-align:center;">Selective Schools Predictor</h1>	
+<h1 style="font-size:45px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>	
       <form action = "" method="POST" name="mainform">
          <fieldset>
             <br>
             {{ resultform.hidden_tag() }}
             
-            <div style = "font-size:20px; font-weight:normal; margin-left:100px;">
-               <h1 style = "text-align: left;">My Score is {{ Total_Score }} </h1>
-               English School Assessment {{ School_English }} <br>
-               Mathematics School Assessment {{ School_Maths }} <br>
-               English Examination Score {{ ExaminationScores_English }} <br>
-               Mathematics Examination Score {{ ExaminationScores_Maths }} <br>
-               GA Examination Score {{ ExaminationScores_GA }} <br>
-               Writing Examination Score {{ ExaminationScores_Writing }} <br>                                   
-               
-			   <h2 style = "text-align: left;">Home Address</h2>
-			   {{HomeAddress}}<br>
-			   Lat {{HomeLat}}<br>
-			   Long {{HomeLng}}<br>
+            <div style = "font-size:25px; font-weight:normal; margin-left:100px;">
+               <h1 style = "font-size:40px; text-align: left;">Total Computed Score is {{ Total_Score }} </h1>
 			   
-			   <h2 style = "text-align: left;">Predicted Selective Schools List</h2>
-			   <table style="width:100%; text-align:left; font-weight:normal;" >
+   	           <h2 style = "font-size:25px; text-align: left;">Home Address</h2>
+			       {{HomeAddress}}<br>
+
+   	           <h2 style = "font-size:25px; text-align: left;">Student's Grades</h2>
+			   
+			   <table style="font-size:20px; width:35%; text-align:left; font-weight:normal">
+			   <tr>
+   			      <td>English School Assessment</td>
+				  <td>{{ School_English }}</td>
+			   </tr>	
+			   <tr>
+   			      <td>Mathematics School Assessment</td>
+				  <td>{{ School_Maths }}</td>
+			   </tr>	
+			   <tr>
+   			      <td>English Examination Score</td>
+				  <td>{{ ExaminationScores_English }}</td>
+			   </tr>				   
+			   <tr>
+   			      <td>Mathematics Examination Score</td>
+				  <td>{{ ExaminationScores_Maths }}</td>
+			   </tr>				   
+			   <tr>
+   			      <td>GA Examination Score</td>
+				  <td>{{ ExaminationScores_GA }}</td>
+			   </tr>				   
+			   <tr>
+   			      <td>Writing Examination Score</td>
+				  <td>{{ ExaminationScores_Writing }}</td>
+			   </tr>							   
+			   </table>
+
+			   <h2 style = "font-size:25px; text-align: left;">Predicted Selective Schools List</h2>
+			   <table style="font-size:20px; width:90%; text-align:left; font-weight:normal" border="1">
 			   <tr>
    			      <th>School Name</th>
 				  <th>Entry Score</th>
 				  <th>Website</th>
-				  <th>Distance from home</th>
+				  <th>Distance from Home</th>
 			   </tr>	
 			   {% for school in school_list %}
 			   <tr>
    			      <td>{% print school[0] %}</td>
 				  <td>{% print school[1] %}</td>
-				  <td>{% print school[2] %}</td>
+				  <td><a href="{% print 'http://',school[2] %}" target="_blank">{% print school[2] %}</a></td>
 				  <td>{% print school[3] %} kms</td>
-			   </tr>	
+			   </tr>
 			   {% endfor %}               
-			   
 			   <br> 
 			   <br> 
-			   </table>			   
-				
-				
+			   </table>
+			   <br> 
 			   {{ resultform.Submit2 }}
 			   
             </div>
