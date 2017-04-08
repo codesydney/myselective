@@ -1,10 +1,8 @@
 <!-- extend from base layout -->
 {% extends "base.html" %}
-
 {% block content %}
-<h1 style="font-size:45px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>
-	  
-      <div style="margin-left:150px; color:red">
+<h1 style="color:#3d475c;font-size:55px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>	  
+      <div style="font-size:20px; margin-left:150px; color:red">
       {% for message in form.School_English.errors %}
          <div>{{ message }}</div>
       {% endfor %}
@@ -40,9 +38,9 @@
             {{ form.hidden_tag() }}
             
             <div style = "font-size:30px; font-weight:normal; margin-left:150px;">
-               <h4>School Assessment</h4>			  
+			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">School Assessment</h2>			  
 			   
-			   <div style = "margin-left:260px;">
+			   <div style = "margin-left:175px;">
                {{ form.School_English.label }}<br>
                {{ form.School_English }}
                <br>
@@ -53,9 +51,9 @@
 			   <br>
                <br>
  			   			   
-			   <h4>Examination Scores</h4>			  
+			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Examination Scores</h2>			  
 
-			   <div style = "margin-left:260px;">
+			   <div style = "margin-left:175px;">
                {{ form.ExaminationScores_English.label }}<br>
                {{ form.ExaminationScores_English }}
                <br>
@@ -75,19 +73,20 @@
                <br> 
 			   			   			   
 			  <body>
-   			    <h4>My Home Address</h4>			  
+   			    <h2 style="color:#3d475c;font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">My Home Address</h2>			  
 				
-				<div style = "margin-left:260px;">
+				<div style = "margin-left:175px;">
 				<form>
                  {{ form.HomeAddress }}					 				 
 				 {{ form.HomeLat }}					 				 
 				 {{ form.HomeLng }}					 				 
 				</form>
 				</div>
-				
+
+				{% block scripts %}								
+				{{super()}}
 				<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDF717x9JS9ixAmsn1vJnElLfWn20BgKcM&sensor=false&amp;libraries=places"></script>
 				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 				<script type="text/javascript" src="{{ url_for('static', filename='jquery.geocomplete.js') }}"></script>
 				<script type="text/javascript" src="{{ url_for('static', filename='logger.js') }}"></script>
 			   
@@ -108,7 +107,8 @@
 					  });    			  
 				  });
 		
-				</script>												
+				</script>
+				{% endblock %}				
 			  </body>    
 			  
               <br> 
@@ -119,7 +119,4 @@
             </div>          
       </form>
 	  
-
-  
-
 {% endblock %}

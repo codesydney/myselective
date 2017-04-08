@@ -2,21 +2,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 style="font-size:45px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>	
+<h1 style="color:#3d475c;font-size:55px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>	
       <form action = "" method="POST" name="mainform">
          <fieldset>
             <br>
             {{ resultform.hidden_tag() }}
             
             <div style = "font-size:25px; font-weight:normal; margin-left:100px;">
-               <h1 style = "font-size:40px; text-align: left;">Total Computed Score is {{ Total_Score }} </h1>
+               <h1 style = "color:#3d475c;font-size:50px;font-weight:bold;text-align: left;">Total Computed Score is {{ Total_Score }} </h1>
 			   
-   	           <h2 style = "font-size:25px; text-align: left;">Home Address</h2>
+   	           <h2 style="font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Home Address</h2>
 			       {{HomeAddress}}<br>
 
-   	           <h2 style = "font-size:25px; text-align: left;">Student's Grades</h2>
+   	           <h2 style="font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Student's Grades</h2>
 			   
-			   <table style="font-size:20px; width:35%; text-align:left; font-weight:normal">
+			   <table style="font-size:20px; width:20%; text-align:left; font-weight:normal">
 			   <tr>
    			      <td>English School Assessment</td>
 				  <td>{{ School_English }}</td>
@@ -43,14 +43,15 @@
 			   </tr>							   
 			   </table>
 
-			   <h2 style = "font-size:25px; text-align: left;">Predicted Selective Schools List</h2>
+			   <h2 style="font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Predicted Selective Schools List</h2>
 			   <table style="font-size:20px; width:90%; text-align:left; font-weight:normal" border="1">
 			   <tr>
    			      <th>School Name</th>
 				  <th>Entry Score</th>
 				  <th>Website</th>
 				  <th>Distance from Home</th>
-			   </tr>	
+			   </tr>				   		
+			   			   
 			   {% for school in school_list %}
 			   <tr>
    			      <td>{% print school[0] %}</td>
