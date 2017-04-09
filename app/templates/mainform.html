@@ -1,11 +1,15 @@
 <!-- extend from base layout -->
 {% extends "base.html" %}
 {% block content %}
-<h1 style="color:#3d475c;font-size:55px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>	  
-<div style="color:#3d475c;font-size:30px;font-weight:bold;margin-center:150px;text-align:center;">A volunteer project of <a href="https://www.code.sydney" target="_blank">Code.Sydney</a></div>	  
 
+<style>
+	body {background-color:#D5D8DC}
+</style>
 
-      <div style="font-size:20px; margin-left:150px; color:red">
+<h1 style="color:#3d475c;font-size:55px;font-weight:bold;text-align:left;margin-left:10px">NSW Selective Schools Predictor</h1>	  
+<div style="color:#3d475c;font-size:30px;font-weight:bold;text-align:left;margin-left:10px">A volunteer project of <a href="https://www.code.sydney" target="_blank">Code.Sydney</a></div>	  
+
+      <div style="font-size:20px;text-align:left;margin-left:10px;color:red">
       {% for message in form.School_English.errors %}
          <div>{{ message }}</div>
       {% endfor %}
@@ -40,10 +44,10 @@
             <br>
             {{ form.hidden_tag() }}
             
-            <div style = "font-size:30px; font-weight:normal; margin-left:150px;">
-			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">School Assessment</h2>			  
+            <div style = "font-size:30px;font-weight:normal;text-align:left;margin-left:10px">
+			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">School Assessment</h2>			  
 			   
-			   <div style = "margin-left:175px;">
+			   <div style = "margin-left:30px;">
                {{ form.School_English.label }}<br>
                {{ form.School_English }}
                <br>
@@ -54,9 +58,9 @@
 			   <br>
                <br>
  			   			   
-			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Examination Scores</h2>			  
+			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">Examination Scores</h2>			  
 
-			   <div style = "margin-left:175px;">
+			   <div style = "margin-left:30px;">
                {{ form.ExaminationScores_English.label }}<br>
                {{ form.ExaminationScores_English }}
                <br>
@@ -76,9 +80,9 @@
                <br> 
 			   			   			   
 			  <body>
-   			    <h2 style="color:#3d475c;font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">My Home Address</h2>			  
+   			    <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">My Home Address</h2>			  
 				
-				<div style = "margin-left:175px;">
+				<div style = "margin-left:30px;">
 				<form>
                  {{ form.HomeAddress }}					 				 
 				 {{ form.HomeLat }}					 				 

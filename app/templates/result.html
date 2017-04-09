@@ -1,24 +1,28 @@
 <!-- extend from base layout -->
 {% extends "base.html" %}
-
 {% block content %}
-<h1 style="color:#3d475c;font-size:55px;font-weight:bold;margin-center:150px;text-align:center;">NSW Selective Schools Predictor</h1>	
-<div style="color:#3d475c;font-size:30px;font-weight:bold;margin-center:150px;text-align:center;">A volunteer project of <a href="https://www.code.sydney" target="_blank">Code.Sydney</a></div>	  
+
+<style>
+	body {background-color:#D5D8DC}
+</style>
+
+<h1 style="color:#3d475c;font-size:55px;font-weight:bold;text-align:left;margin-left:10px">NSW Selective Schools Predictor</h1>	
+<div style="color:#3d475c;font-size:30px;font-weight:bold;text-align:left;margin-left:10px">A volunteer project of <a href="https://www.code.sydney" target="_blank">Code.Sydney</a></div>	  
 
       <form action = "" method="POST" name="mainform">
          <fieldset>
             <br>
             {{ resultform.hidden_tag() }}
             
-            <div style = "font-size:25px; font-weight:normal; margin-left:100px;">
-               <h1 style = "color:#3d475c;font-size:50px;font-weight:bold;text-align: left;">Total Computed Score is {{ Total_Score }} </h1>
+            <div style = "font-size:25px;font-weight:normal;text-align:left;margin-left:10px">
+               <h1 style = "color:#3d475c;font-size:50px;font-weight:bold;text-align:left;margin-left:10px;">Total Computed Score is {{ Total_Score }} </h1>
 			   
-   	           <h2 style="font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Home Address</h2>
-			       {{HomeAddress}}<br>
+   	           <h2 style="font-size:40px;font-weight:bold;text-align:left;margin-left:10px">Home Address</h2>
+			   <div style="font-size:20px;font-weight:normal;text-align:left;margin-left:10px">{{HomeAddress}}</div><br>
 
-   	           <h2 style="font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Student's Grades</h2>
+   	           <h2 style="font-size:40px;font-weight:bold;text-align:left;margin-left:10px">Student's Grades</h2>
 			   
-			   <table style="font-size:20px; width:20%; text-align:left; font-weight:normal">
+			   <table style="font-size:20px;width:40%;text-align:left;margin-left:10px;font-weight:normal">
 			   <tr>
    			      <td>English School Assessment</td>
 				  <td>{{ School_English }}</td>
@@ -36,7 +40,7 @@
 				  <td>{{ ExaminationScores_Maths }}</td>
 			   </tr>				   
 			   <tr>
-   			      <td>GA Examination Score</td>
+   			      <td>General Ability Examination Score</td>
 				  <td>{{ ExaminationScores_GA }}</td>
 			   </tr>				   
 			   <tr>
@@ -45,8 +49,8 @@
 			   </tr>							   
 			   </table>
 
-			   <h2 style="font-size:40px;font-weight:bold;margin-center:150px;text-align:left;">Predicted Selective Schools List</h2>
-			   <table style="font-size:20px; width:90%; text-align:left; font-weight:normal" border="1">
+			   <h2 style="font-size:40px;font-weight:bold;text-align:left;margin-left:10px">Predicted Selective Schools List</h2>
+			   <table style="font-size:20px;width:90%;text-align:left;font-weight:normal;margin-left:10px" border="1">
 			   <tr>
    			      <th>School Name</th>
 				  <th>Entry Score</th>
