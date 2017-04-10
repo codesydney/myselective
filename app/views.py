@@ -14,21 +14,33 @@ def index():
 	
 	if form.validate_on_submit() and form.Submit1.data:
 		School_English = form.School_English.data
+		if School_English > 100:
+			School_English = 100
 		form.School_English.data = ''
        
 		School_Maths = form.School_Maths.data
+		if School_Maths > 100:
+			School_Maths = 100
 		form.School_Maths.data = ''
         
 		ExaminationScores_English = form.ExaminationScores_English.data
+		if ExaminationScores_English > 100:
+			ExaminationScores_English = 100
 		form.ExaminationScores_English.data = ''
         
 		ExaminationScores_Maths = form.ExaminationScores_Maths.data
+		if ExaminationScores_Maths > 100:
+			ExaminationScores_Maths = 100
 		form.ExaminationScores_Maths.data = ''
 
 		ExaminationScores_GA = form.ExaminationScores_GA.data
+		if ExaminationScores_GA > 100:
+			ExaminationScores_GA = 100
 		form.ExaminationScores_GA.data = ''
 
 		ExaminationScores_Writing = form.ExaminationScores_Writing.data
+		if ExaminationScores_Writing > 100:
+			ExaminationScores_Writing = 100
 		form.ExaminationScores_Writing.data = ''
         
 		Total_English = (School_English + (ExaminationScores_English * 0.667 + ExaminationScores_Writing * 0.333)) / 2
