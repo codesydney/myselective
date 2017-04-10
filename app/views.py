@@ -40,15 +40,21 @@ def index():
 		HomeLat = form.HomeLat.data
 		HomeLng = form.HomeLng.data		
 		
+		#If no address inputted, geocode defaults to 100 Market St, Sydney
+		if not HomeLat:
+			HomeLat = "-33.8704510"
+			HomeLng = "151.2087600"
+			HomeAddress = "Invalid home address. Distance is computed from 100 Market St, Sydney NSW 2000"
+		
 		schools = models.School.query.filter(models.School.entryscore <= Total_Score).order_by(models.School.entryscore.desc()).all()
 		R = 6373.0
 		
 		school_list = []
 		
 		for school in schools:
-			dlon = school.schoollng - float(form.HomeLng.data)	
-			dlat = school.schoollat - float(form.HomeLat.data)			
-			a = sin(dlat / 2)**2 + cos(float(form.HomeLat.data)) * cos(float(school.schoollat)) * sin(dlon / 2)**2
+			dlon = school.schoollng - float(HomeLng)	
+			dlat = school.schoollat - float(HomeLat)			
+			a = sin(dlat / 2)**2 + cos(float(HomeLat)) * cos(float(school.schoollat)) * sin(dlon / 2)**2
 			c = 2 * atan2(sqrt(a), sqrt(1 - a))
 			distance = round((R * c) / 100,2) 			
 			selected_fields=[school.schoolname,school.entryscore,school.website,distance]

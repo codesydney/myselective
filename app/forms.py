@@ -15,7 +15,7 @@ class MainForm(Form):
 	ExaminationScores_GA = IntegerField('General Ability', [validators.Required("Please enter your GA exam score.")],render_kw={"placeholder": "","size":"10"})
 	ExaminationScores_Writing = IntegerField('Writing', [validators.Required("Please enter your Writing exam score.")],render_kw={"placeholder": "","size":"10"})
 	HomeAddressTitle = StringField("My Home Address")		
-	HomeAddress = StringField('Home Address', [validators.Required("Please enter your Home address.")],render_kw={"placeholder": "Type in your home address","id":"geocomplete","size":"90"})	
+	HomeAddress = StringField('Home Address', [validators.Required("Please enter your Home address.")],render_kw={"placeholder": "Type in your home address","id":"geocomplete","size":"75"})	
 	HomeLat = HiddenField(render_kw={"id":"home_lat"})	
 	HomeLng = HiddenField(render_kw={"id":"home_lng"})		
 	Submit1 = SubmitField('Submit',render_kw={"size":"90"})	    
