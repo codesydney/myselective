@@ -6,8 +6,8 @@
 	body {background-color:#D5D8DC}
 </style>
 
-<h1 style="color:#3d475c;font-size:55px;font-weight:bold;text-align:left;margin-left:10px">NSW Selective Schools Predictor</h1>	  
-<div style="color:#3d475c;font-size:20px;font-weight:bold;text-align:left;margin-left:10px">A volunteer project of <a href="https://www.code.sydney" target="_blank">Code.Sydney</a></div>	  
+<h1 style="color:#3d475c;font-size:75px;font-weight:bold;text-align:left;margin-left:10px">NSW Selective Schools Predictor</h1>	  
+<div style="color:#3d475c;font-size:15px;font-weight:normal;text-align:left;margin-left:10px">A volunteer project of <a href="https://www.code.sydney" target="_blank">Code.Sydney</a></div>	  
 
       <div style="font-size:20px;text-align:left;margin-left:10px;color:red">
       {% for message in form.School_English.errors %}
@@ -45,44 +45,62 @@
             {{ form.hidden_tag() }}
             
             <div style = "font-size:30px;font-weight:normal;text-align:left;margin-left:10px">
-			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">School Assessment</h2>			  
+			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left">School Assessment</h2>			  			   
+        	   
+			   <table style="width:30%">
+			   <tr>
+   			      <td align="left">{{ form.School_English.label }}</td>
+				  <td align="right">{{ form.School_English }}</td>
+			   </tr>	
+               </table>			   					   
+			   <div style = "margin-left:355px;color:#616A6B;font-size:12px;">Highest is 100</div>
 			   
-			   <div style = "margin-left:30px;">
-               {{ form.School_English.label }}<br>
-               {{ form.School_English }}
-               <br>
-			   <div style = "margin-left:3px;color:#616A6B;font-size:12px;">Highest is 100</div>
+			   <table style="width:30%">
+			   <tr>
+   			      <td align="left">{{ form.School_Maths.label }}</td>
+				  <td align="right">{{ form.School_Maths }}</td>
+			   </tr>	
+               </table>			   					   
+			   <div style = "margin-left:355px;color:#616A6B;font-size:12px;">Highest is 100</div>
+			   			    			   			   
+			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left">Examination Scores</h2>			  
+			          	  
+			   <table style="width:30%">
+			   <tr>
+   			      <td align="left">{{ form.ExaminationScores_English.label }}</td>
+				  <td align="right">{{ form.ExaminationScores_English }}</td>
+			   </tr>	
+               </table>			   					   
+			   <div style = "margin-left:355px;color:#616A6B;font-size:12px;">Highest is 100</div>
 			   
-               {{ form.School_Maths.label }}<br>
-               {{ form.School_Maths }}
-			   <div style = "margin-left:3px;color:#616A6B;font-size:12px;">Highest is 100</div>			   
-               </div>			   
- 			   			   
-			   <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">Examination Scores</h2>			  
-
-			   <div style = "margin-left:30px;">
-               {{ form.ExaminationScores_English.label }}<br>
-               {{ form.ExaminationScores_English }}
-			   <div style = "margin-left:3px;color:#616A6B;font-size:12px;">Highest is 100</div>
-
-               {{ form.ExaminationScores_Maths.label }}<br>
-               {{ form.ExaminationScores_Maths }}
-			   <div style = "margin-left:3px;color:#616A6B;font-size:12px;">Highest is 100</div>
-
-               {{ form.ExaminationScores_GA.label }}<br>
-               {{ form.ExaminationScores_GA }}
-			   <div style = "margin-left:3px;color:#616A6B;font-size:12px;">Highest is 100</div>
-
-               {{ form.ExaminationScores_Writing.label }}<br>
-               {{ form.ExaminationScores_Writing }}
-			   <div style = "margin-left:3px;color:#616A6B;font-size:12px;">Highest is 100</div>
-			   </div>			   
-               <br>
-			   			   			   
+			   <table style="width:30%">
+			   <tr>
+   			      <td align="left">{{ form.ExaminationScores_Maths.label }}</td>
+				  <td align="right">{{ form.ExaminationScores_Maths }}</td>
+			   </tr>	
+               </table>			   					   
+			   <div style = "margin-left:355px;color:#616A6B;font-size:12px;">Highest is 100</div>
+               
+			   <table style="width:30%">
+			   <tr>
+   			      <td align="left">{{ form.ExaminationScores_GA.label }}</td>
+				  <td align="right">{{ form.ExaminationScores_GA }}</td>
+			   </tr>	
+               </table>			   					   
+			   <div style = "margin-left:355px;color:#616A6B;font-size:12px;">Highest is 100</div>
+               			   
+			   <table style="width:30%">
+			   <tr>
+   			      <td align="left">{{ form.ExaminationScores_Writing.label }}</td>
+				  <td align="right">{{ form.ExaminationScores_Writing }}</td>
+			   </tr>	
+               </table>			   					   
+			   <div style = "margin-left:355px;color:#616A6B;font-size:12px;">Highest is 100</div>
+						   			   			   			   
 			  <body>
-   			    <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">My Home Address</h2>			  
-				
-				<div style = "margin-left:30px;">
+			  
+   			    <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left">My Home Address</h2>			  				
+				<div>
 				<form>
                  {{ form.HomeAddress }}					 				 
 				 {{ form.HomeLat }}					 				 
@@ -118,9 +136,7 @@
 				{% endblock %}				
 			  </body>    
 			  
-              <br> 
 			  <br> 
-   	          
 			  {{ form.Submit1 }}
 			  
             </div>          
