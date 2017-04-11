@@ -14,8 +14,24 @@
             <br>
             {{ resultform.hidden_tag() }}
             
-            <div style = "font-size:25px;font-weight:normal;text-align:left;margin-left:10px">
-               <h1 style = "color:#3d475c;font-size:55px;font-weight:bold;text-align:left;margin-left:10px;">Total Computed Score is {{ Total_Score }}</h1>
+			    <style type="text/css">
+				  h1 { 
+					font-size:55px;
+					color:#3d475c;
+					font-weight:bold; 
+					text-align:left;
+					margin-left:10px;
+				  }
+				  .score {				  
+					color:#D68910;
+					font-size:60px;
+					font-weight:bold; 
+				  }
+				</style>
+						
+            <div style = "font-size:25px;font-weight:normal;text-align:left;">
+			   <h1>Total Computed Score is <span class='score'>{{ Total_Score }}</span></h1>			
+			   <div style = "color:#616A6B;font-size:12px;">Please be reminded that this is just an indicative score.</div>
 			   
    	           <h2 style="color:#3d475c;font-size:40px;font-weight:bold;text-align:left;margin-left:10px">Home Address</h2>
 			   <div style="font-size:20px;font-weight:normal;text-align:left;margin-left:10px">{{HomeAddress}}</div><br>
