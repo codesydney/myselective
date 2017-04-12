@@ -114,6 +114,9 @@ class SchemaItem(SchemaEventTarget, visitors.Visitable):
         schema_item.dispatch._update(self.dispatch)
         return schema_item
 
+    def _translate_schema(self, effective_schema, map_):
+        return map_.get(effective_schema, effective_schema)
+
 
 class Table(DialectKWArgs, SchemaItem, TableClause):
     r"""Represent a table in a database.
@@ -172,7 +175,7 @@ class Table(DialectKWArgs, SchemaItem, TableClause):
         is set in which case it defaults to True; :class:`.Column` objects
         for this table should be reflected from the database, possibly
         augmenting or replacing existing :class:`.Column` objects that were
-        expicitly specified.
+        explicitly specified.
 
         .. versionchanged:: 1.0.0 setting the :paramref:`.Table.autoload_with`
            parameter implies that :paramref:`.Table.autoload` will default
@@ -2627,6 +2630,12 @@ class ColumnCollectionConstraint(ColumnCollectionMixin, Constraint):
         Constraint.__init__(self, **kw)
         ColumnCollectionMixin.__init__(self, *columns, _autoattach=_autoattach)
 
+    columns = None
+    """A :class:`.ColumnCollection` representing the set of columns
+    for this constraint.
+
+    """
+
     def _set_parent(self, table):
         Constraint._set_parent(self, table)
         ColumnCollectionMixin._set_parent(self, table)
@@ -2867,6 +2876,22 @@ class ForeignKeyConstraint(ColumnCollectionConstraint):
     def _append_element(self, column, fk):
         self.columns.add(column)
         self.elements.append(fk)
+
+    columns = None
+    """A :class:`.ColumnCollection` representing the set of columns
+    for this constraint.
+
+    """
+
+    elements = None
+    """A sequence of :class:`.ForeignKey` objects.
+
+    Each :class:`.ForeignKey` represents a single referring column/referred
+    column pair.
+
+    This collection is intended to be read-only.
+
+    """
 
     @property
     def _elements(self):
@@ -3527,7 +3552,7 @@ class MetaData(SchemaItem):
               present, the :class:`.Constraint` object's existing name will be
               replaced with one that is composed from template string that
               uses this token. When this token is present, it is required that
-              the :class:`.Constraint` is given an expicit name ahead of time.
+              the :class:`.Constraint` is given an explicit name ahead of time.
 
             * user-defined: any additional token may be implemented by passing
               it along with a ``fn(constraint, table)`` callable to the
@@ -3974,7 +3999,8 @@ class _SchemaTranslateMap(object):
         if map_ is not None:
             def schema_for_object(obj):
                 effective_schema = self._default_schema_getter(obj)
-                effective_schema = map_.get(effective_schema, effective_schema)
+                effective_schema = obj._translate_schema(
+                    effective_schema, map_)
                 return effective_schema
             self.__call__ = schema_for_object
             self.hash_key = ";".join(

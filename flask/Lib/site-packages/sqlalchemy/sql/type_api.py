@@ -858,7 +858,7 @@ class TypeDecorator(SchemaEventTarget, TypeEngine):
         return self.impl._type_affinity
 
     def _set_parent(self, column):
-        """Support SchemaEentTarget"""
+        """Support SchemaEventTarget"""
 
         super(TypeDecorator, self)._set_parent(column)
 
@@ -866,7 +866,7 @@ class TypeDecorator(SchemaEventTarget, TypeEngine):
             self.impl._set_parent(column)
 
     def _set_parent_with_dispatch(self, parent):
-        """Support SchemaEentTarget"""
+        """Support SchemaEventTarget"""
 
         super(TypeDecorator, self)._set_parent_with_dispatch(parent)
 
@@ -1214,13 +1214,35 @@ class Variant(TypeDecorator):
         self.mapping = mapping
 
     def coerce_compared_value(self, operator, value):
-        return self.impl.coerce_compared_value(operator, value)
+        result = self.impl.coerce_compared_value(operator, value)
+        if result is self.impl:
+            return self
+        else:
+            return result
 
     def load_dialect_impl(self, dialect):
         if dialect.name in self.mapping:
             return self.mapping[dialect.name]
         else:
             return self.impl
+
+    def _set_parent(self, column):
+        """Support SchemaEventTarget"""
+
+        if isinstance(self.impl, SchemaEventTarget):
+            self.impl._set_parent(column)
+        for impl in self.mapping.values():
+            if isinstance(impl, SchemaEventTarget):
+                impl._set_parent(column)
+
+    def _set_parent_with_dispatch(self, parent):
+        """Support SchemaEventTarget"""
+
+        if isinstance(self.impl, SchemaEventTarget):
+            self.impl._set_parent_with_dispatch(parent)
+        for impl in self.mapping.values():
+            if isinstance(impl, SchemaEventTarget):
+                impl._set_parent_with_dispatch(parent)
 
     def with_variant(self, type_, dialect_name):
         """Return a new :class:`.Variant` which adds the given
