@@ -10,7 +10,7 @@ class MainForm(Form):
 	School_English = IntegerField('English', [validators.Required("Please enter your English school assessment.")],render_kw={"placeholder": "","size":"10"})	
 	School_Maths = IntegerField('Mathematics', [validators.Required("Please enter your Maths school assessment.")],render_kw={"placeholder": "","size":"10"})	
 	ExaminationScoresTitle = StringField("Examination Scores")
-	ExaminationScores_English = IntegerField('English', [validators.Required("Please enter your English exam score.")],render_kw={"placeholder": "","size":"10"})	
+	ExaminationScores_English = IntegerField('Reading', [validators.Required("Please enter your English exam score.")],render_kw={"placeholder": "","size":"10"})	
 	ExaminationScores_Maths = IntegerField('Mathematics', [validators.Required("Please enter your Maths exam score.")],render_kw={"placeholder": "","size":"10"})
 	ExaminationScores_GA = IntegerField('General Ability', [validators.Required("Please enter your GA exam score.")],render_kw={"placeholder": "","size":"10"})
 	ExaminationScores_Writing = IntegerField('Writing', [validators.Required("Please enter your Writing exam score.")],render_kw={"placeholder": "","size":"10"})
